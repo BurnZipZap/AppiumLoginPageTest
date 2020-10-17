@@ -13,7 +13,7 @@ import io.appium.java_client.MobileElement;
 
 public class TestLoginPage {
 
-	static AppiumDriver<MobileElement> driver;
+	private static AppiumDriver<MobileElement> driver;
 	
 	public static void main(String[] args) {
 		try {
@@ -58,19 +58,19 @@ public class TestLoginPage {
 		}
 	}
 	
-	public static void installDeviceSettings(DesiredCapabilities cap) {
+	private static void installDeviceSettings(DesiredCapabilities cap) {
 		cap.setCapability("deviceName", "realme 6");
 		cap.setCapability("udid", "VKVG8LKF75SK8T7H");
 		cap.setCapability("platformName", "Android");
 		cap.setCapability("platformVersion", "10");
 	}
 	
-	public static void installApplicationSettings(DesiredCapabilities cap) {
+	private static void installApplicationSettings(DesiredCapabilities cap) {
 		cap.setCapability("appPackage", "ru.tele2.mytele2");
 		cap.setCapability("appActivity", "ru.tele2.mytele2.ui.splash.SplashActivity");
 	}
 	
-	public static void connectionToDevice(DesiredCapabilities cap) throws MalformedURLException {
+	private static void connectionToDevice(DesiredCapabilities cap) throws MalformedURLException {
 		URL url = new URL("http://127.0.0.1:4723/wd/hub");
 		driver = new AppiumDriver<MobileElement>(url, cap);
 	}
@@ -93,7 +93,7 @@ public class TestLoginPage {
 		buttom.click();
 	}
 
-	public static void waitToLoadPage() {
+	private static void waitToLoadPage() {
 		System.out.println("waitToLoadPage");
 		try {
 			Thread.sleep(10000);
